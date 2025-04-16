@@ -8,11 +8,13 @@ arphdr.o: mac.h ip.h arphdr.h arphdr.cpp
 
 ethhdr.o: mac.h ethhdr.h ethhdr.cpp
 
+iphdr.o : ip.h iphdr.h iphdr.cpp
+
 ip.o: ip.h ip.cpp
 
 mac.o : mac.h mac.cpp
 
-arp-spoof: main.o arphdr.o ethhdr.o ip.o mac.o
+arp-spoof: main.o arphdr.o ethhdr.o ip.o mac.o iphdr.o
 	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 clean:
